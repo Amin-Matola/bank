@@ -48,6 +48,13 @@ def load_user(mail, target='user'):
     else:
         return False
 #---------------------------------- Now the core logic ------------------------------------------------
+#--------------------------------Notice: No flask blue print used, it denies on my web host------------|
+from views import *
+
+
+
+
+
 
 
 
