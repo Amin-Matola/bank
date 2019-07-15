@@ -12,7 +12,15 @@ from flask_login import current_user,login_user,LoginManager
 from werkzeug.security import generate_password_hash,check_password_hash
 from werkzeug.utils import secure_filename
 
-app.config["SQLALCHEMY_DATABASE_URI"]       = url
+connection             = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
+    username='xxxxxxxx',
+    password='xxxxxxxx',
+    hostname='thehosttodatabase.com',
+    databasename='bank',
+    )
+    
+
+app.config["SQLALCHEMY_DATABASE_URI"]       = connection
 app.config["DEBUG"]                         = True
 app.config["UPLOAD_FOLDER"]                 = "/path/to/store/static/files"
 app.config["SQLALCHEMY_POOL_RECYCLE"]       = 299
