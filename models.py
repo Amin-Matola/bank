@@ -3,13 +3,7 @@ from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 
-connection             = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
-    username='xxxxxxxx',
-    password='xxxxxxxx',
-    hostname='thehosttodatabase.com',
-    databasename='bank',
-    )
-    
+
 #---------------------Connect SQLAlchemy with APP, Where this models will be imported-----------------
 db                      = SQLAlchemy(app)                
 #-------------------------------------------Users------------------------------------------------------
