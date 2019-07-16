@@ -1,8 +1,8 @@
-# bank
+# Online Banking System
 Banking transactions.
 
-This project is a private project, and due to some python SQLAlchemy-Python Changes, it require few modifications!
-It can be seen at http://systems.pythonanywhere.com
+This project can be found at http://systems.pythonanywhere.com, It makes use of Jquery Mobile which is not consistent so far...
+The effort is being made to shift to Bootstrap so that the project stays stable on all platforms.
 
 ______________________________________________________________________
 
