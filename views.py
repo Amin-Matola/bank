@@ -70,7 +70,7 @@ def generate_account():
     if current_user.is_authenticated:
         #------------------------create a bank account----------------------------------------------------
             user_id         = current_user.id
-            accn            = current_user.fname+" "+current_user.lname
+            accn            = "%s %s"%(current_user.fname,current_user.lname)
             #---------------------  Account number for specific user -------------------------------------
             accnum          = 1000000000+user_id
             odate           = datetime.now()
