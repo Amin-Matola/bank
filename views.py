@@ -4,6 +4,17 @@ def gen_pdf(inf,to):
     pisa.createPDF(StringIO(inf),pdf)
     return pdf
 
+#-------------------- Transaction Details Template ---------------------------------------------
+template            = """ 
+Account Key\t	Description\n\n
+Account Name\t	{uname}\n\n
+Account Number\t{acn}\n\n
+Account Holder\t{name}\n\n
+Country	\t{contry}\n\n
+Current Balance\t{bala}\n\n
+Create Date	\t{tim}\n\n
+Phone Number\t	{num}\n\n
+"""
 
 
 #----------------------------------Home Page-----------------------------------------------------
@@ -73,9 +84,9 @@ def generate_account():
             except Exception as e:
                 return jsonify(err="Account creating failed, please try again...%s"%e)
             
-            opentransaction       = transa.format(uname=accn,acn=accnum,contry =current_user.country,bala= bl,tim=datetime.now(),num=pn)
+            opentransaction       = template.format(uname=accn,acn=accnum,contry =current_user.country,bala= bl,tim=datetime.now(),num=pn)
             #------------------------------Generate Transaction ---------------------------------------
-            gen_pdf(transa,user_id)
+            gen_pdf(opentransaction,user_id)
             
             #----------------------------- Show the account details to the user -----------------------
             account         = Account.query.filter_by(accNumber=accnum).first()
