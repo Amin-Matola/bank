@@ -1,5 +1,5 @@
 # Online Banking System
-Banking transactions.
+Online Banking transactions with python flask.
 
 This project can be found at http://systems.pythonanywhere.com, It makes use of Jquery Mobile which is not consistent so far...
 The effort is being made to shift to Bootstrap so that the project stays stable on all platforms.
