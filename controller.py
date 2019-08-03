@@ -2,9 +2,9 @@
 #---------------------------------------LAST TOUCHED BY: AMIN MATOLA------------------------
 from smtplib import SMTP_SSL
 from email.message import Message
-# from xhtml2pdf import pisa
-# from StringIO import StringIO
-# from bs4 import Beautifulsoup
+from xhtml2pdf import pisa
+from StringIO import StringIO
+from bs4 import Beautifulsoup
 import urllib
 from datetime import datetime
 import os
