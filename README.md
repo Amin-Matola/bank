@@ -7,5 +7,5 @@ The contents found here on this repo are insufficient though, as compared to tho
 
 ______________________________________________________________________
 
-**_Amin Matola_**. (The _Pythonist_)
+**_Amin Matola_**. (The _Pythonist_ :+1: )
 
