@@ -9,8 +9,9 @@ The contents found here on this repo are insufficient though, as compared to tho
 The project can manage the banking transactions and will enable you to:
 
 1. [x] [Create/open account](http://systems.pythonanywhere.com)
-- Visit the link above, and click on **open account**, the form will scroll down do let you fill data
+- Visit the link above, and click on **open account**, the form will scroll down to let you fill data
 - Fill the form and submit, and your account details will be returned to you.
+- **Note**: If your browser is not **_javascript_**-enable, the system will look totally holible. We are adressing this issue recently.
 
 2. [ ] [Deposit Cash](http://systems.pythonanywhere.com/bank#deposit)
 - Visit above link and
