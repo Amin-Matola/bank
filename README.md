@@ -5,6 +5,7 @@ This project can be found at [Online Banking System](http://systems.pythonanywhe
 The effort is being made to shift to Bootstrap so that the project stays stable on all platforms.
 The contents found here on this repo are insufficient though, as compared to those at the above link, and will be gradially copied and stored on this repo.
 
+##Usage
 The project can manage the banking transactions and will enable you to:
 
 1. [x] [Create/open account](http://systems.pythonanywhere.com)
