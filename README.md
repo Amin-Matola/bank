@@ -1,7 +1,9 @@
 # Online Banking System
+
+![Bank](http://systems.pythonanywhere.com/static/process/bank.PNG)
 Online Banking transactions with python **flask**.
 
-This project can be found at [Online Banking System](http://systems.pythonanywhere.com), It makes use of **Jquery Mobile** which is not consistent so far...
+This project can be found at [Online Banking System](http://systems.pythonanywhere.com), It makes use of **Jquery Mobile** which is not consistent so far, for the browsers that block **Javascript**...
 The effort is being made to shift to Bootstrap so that the project stays stable on all platforms.
 The contents found here on this repo are insufficient though, as compared to those at the above link, and will be gradially copied and stored on this repo.
 
@@ -11,7 +13,7 @@ The project can manage the banking transactions and will enable you to:
 1. [x] [Create/open account](http://systems.pythonanywhere.com)
 - Visit the link above, and click on **open account**, the form will scroll down to let you fill data
 - Fill the form and submit, and your account details will be returned to you.
-- **Note**: If your browser is not **_javascript_**-enable, the system will look totally holible. We are adressing this issue recently.
+- **Note**: If your browser is not **_javascript_**-enable, the system will look totally horrible. We are adressing this issue recently.
 
 2. [ ] [Deposit Cash](http://systems.pythonanywhere.com/bank#deposit)
 - Visit above link and
