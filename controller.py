@@ -35,7 +35,7 @@ app.secret_key                              = secret
 lmanager                                    = LoginManager()
 lmanager.init_app(app)
 
-#----------------------------------- Now invite the models ---------------------------------------------
+#----------------------------------- Now invite the models ----------------------------------------------
 from models import *
 #---------------------------------- Manage the users logins first ---------------------------------------
 @lmanager.user_loader
@@ -47,8 +47,7 @@ def load_user(mail, target='user'):
         return Other.query.filter_by(email=mail).first()
     else:
         return False
-#---------------------------------- Now the core logic ------------------------------------------------
-#--------------------------------Notice: No flask blue print used, it denies on my web host------------|
+#---------------------------------- Now the core logic, no blue prints-----------------------------------
 from views import *
 
 
