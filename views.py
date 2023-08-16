@@ -1,10 +1,11 @@
-#------------------------Generate PDF for every transaction --------------------------------------
+from .controller import *
+# Generate PDF for every transaction
 def gen_pdf(inf,to):
     pdf             = StringIO()
     pisa.createPDF(StringIO(inf),pdf)
     return pdf
 
-#-------------------- Transaction Details Template ---------------------------------------------
+# Transaction Details Template
 template            = """ 
 Account Key\t	Description\n\n
 Account Name\t	{uname}\n\n
@@ -17,12 +18,12 @@ Phone Number\t	{num}\n\n
 """
 
 
-#----------------------------------Home Page-----------------------------------------------------
+# Home Page
 @app.route("/")
 def home():
   return render_template("home.html")
 
-#--------------------------------- Open Account --------------------------------------------------
+# Open Account
 @app.route("/create-account", methods=["GET","POST"])
 def create_account():
   if request.method == "GET":
@@ -35,15 +36,16 @@ def create_account():
   currency        = request.form['cur']
   pin             = request.form['pin']
    
-  #-------------------------------- Phone number must be decimals ----------------------------------
+  # Phone number must be decimals
   if not pn.isdecimal():
        return jsonify(error = "The phone number must be digits")
     
-  #------------------------------- Check if the email is not already registered-----------------------
+  # Check if the email is not already registered
   try:
        user        = load_user(em)
-       if user: return jsonify(error="User %s Already exists, please try again with different details..."%user.email)
-  #--------------------------- I fit gives error, then the emaail is new, just do proceed ------------
+       if user: 
+           return jsonify(error = "User %s Already exists, please try again with different details..."%user.email)
+  # If it gives error, then the emaail is new, just do proceed
   except Exception as e:
         pass
 
@@ -93,7 +95,7 @@ def generate_account():
             return render_template('success.html',account=account)
   
 
-#---------------------------------- Deposit some money ------------------------------------------------------
+#-------------- Deposit some money --------------
 @app.route("/deposit", methods = ["GET","POST"])
 def deposit():
     if request.method=='GET':
@@ -107,14 +109,25 @@ def deposit():
     signature       = request.form['dsignature']
     amo             = float(request.form['amount'])
     dat             = datetime.now()
-    #-------------- Necessary 'Variables grabbed'--------------------------------------------------------------
+    #------- Necessary 'Variables grabbed' ---------
     try:
-        deposit          = Deposit(dname=dName,dpnumber=dpNum,demail=dEmail,daddr=dAddr,accName=acName,accNum=acNum,ammount=amo,ddate=dat,dsignature=signature)
+        deposit          = Deposit(
+            dname=dName,
+            dpnumber=dpNum,
+            demail=dEmail,
+            daddr=dAddr,
+            accName=acName,
+            accNum=acNum,
+            ammount=amo,
+            ddate=dat,
+            dsignature=signature
+        )
     except Exception as e:
         return 'Operation failed, please try again...'
     db.session.add(deposit)
     db.session.commit()
-    #-----------------------------------Now do the actual deposit------------------------------------------------
+    
+    #----------- Now do the actual deposit ------------
     try:
         #return 'Testing account...'
         ac               = Account.query.filter_by(accNumber=acNum).first()
@@ -130,4 +143,4 @@ def deposit():
     except Exception as e:
         return jsonify(error = "Deposit failed... %s"%e)
 
-#---------------------------------- Withdraw, go for some fun------------------------------------------
+#--------------- Withdraw, go for some fun------------
