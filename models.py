@@ -6,7 +6,8 @@ from flask_login import UserMixin
 
 # Connect SQLAlchemy with APP, Where this models will be imported
 db                      = SQLAlchemy(app)                
-# Users
+
+# User model
 class User(UserMixin, db.Model):
     __tablename__       = 'Users'
     id                  = db.Column(db.Integer,primary_key=True)
@@ -20,8 +21,6 @@ class User(UserMixin, db.Model):
 
     def get_id(self):
         return self.email
-
-
 
 # Accounts
 class Account(db.Model):
