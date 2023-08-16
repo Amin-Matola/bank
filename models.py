@@ -2,6 +2,7 @@ from datetime import datetime
 #import sqlalchemy
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
+from .controller import app
 
 
 # Connect SQLAlchemy with APP, Where this models will be imported
