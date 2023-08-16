@@ -4,10 +4,10 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 
 
-#---------------------Connect SQLAlchemy with APP, Where this models will be imported-----------------
+# Connect SQLAlchemy with APP, Where this models will be imported
 db                      = SQLAlchemy(app)                
-#-------------------------------------------Users------------------------------------------------------
-class User(UserMixin,db.Model):
+# Users
+class User(UserMixin, db.Model):
     __tablename__       = 'Users'
     id                  = db.Column(db.Integer,primary_key=True)
     fname               = db.Column(db.String(50))
@@ -23,8 +23,7 @@ class User(UserMixin,db.Model):
 
 
 
-#-------------------------------------------Accounts----------------------------------------------------
-
+# Accounts
 class Account(db.Model):
     __tablename__       = 'Accounts'
     id                  = db.Column(db.Integer,primary_key=True)
@@ -35,7 +34,7 @@ class Account(db.Model):
     u_id                = db.Column(db.Integer,db.ForeignKey('Users.id'))
     accHolder           = db.relationship('User',foreign_keys=u_id,cascade='all,delete-orphan',single_parent=True)
 
-#------------------------------------ Lets deposit some money------------------------------------------
+# Bank deposits
 class Deposit(db.Model):
     __tablename__       = 'Deposits'
     id                  = db.Column(db.Integer,primary_key=True)
@@ -49,8 +48,7 @@ class Deposit(db.Model):
     dsignature          = db.Column(db.Text)
     ddate               = db.Column(db.DateTime,default=datetime.now())
 
-#-----------------------------------Another transaction here, withdraws -------------------------------------------
-
+# Withdraws
 class Withdraw(db.Model):
     __tablename__       = 'Withdraws'
     id                  = db.Column(db.Integer,primary_key=True)
